@@ -1,6 +1,9 @@
 {
   "title": "e-INFRA CZ Onedata documentation",
   "pages": [
-    "index"
+    "index",
+    "about-onedata",
+    "how-to",
+    "q-n-a"
   ]
 }

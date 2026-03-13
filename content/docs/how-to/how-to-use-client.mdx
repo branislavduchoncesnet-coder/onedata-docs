@@ -1,0 +1,31 @@
+---
+title: "How do I use OneClient?"
+icon: Single
+---
+
+For seamles integation with your workstation, Oneclient for Linux can be used to mount your Onedata Spaces as any other folder (mountpoint) in your sytsem.
+
+To install Oneclient using packages, simply use the following command:
+
+```
+$ curl -sS http://get.onedata.org/oneclient.sh | bash
+```
+
+Basic usage
+The basic command line syntax to mount your spaces with Oneclient is:
+
+```
+$ oneclient -H <PROVIDER_HOSTNAME> -t <ACCESS_TOKEN> <MOUNT_POINT>
+```
+
+or
+
+```
+$ export ONECLIENT_ACCESS_TOKEN=<CLIENT_TOKEN>         # e.g. MDAxNWxvY2F00aW9uIG9uZXp...
+$ export ONECLIENT_PROVIDER_HOST=<PROVIDER_HOSTNAME>   # e.g. cloud2.onedata.e-infra.cz, cloud255-73.cerit-sc.cz
+$ oneclient <MOUNT_POINT>                              # e.g. /home/honza/oneclient
+```
+
+Provide the hostname of a chosen Oneprovider — one that supports at least one of your spaces
+
+*TO DO*
