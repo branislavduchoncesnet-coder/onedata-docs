@@ -77,7 +77,7 @@ TODO: update endpoint URL and webhook secret.
 Procedure:
 1. Any `push` event in the repository triggers a webhook delivery to the https://docs.platforms.cloud.e-infra.cz/gh/ endpoint.
     - The delivery only passes for a `push` into the `main` branch.
-    - The webhook uses a secret, the value of which is stored as `CLOUD_PLATFORMS_DOCS_WEBHOOK_SECRET` variable in https://gitlab.ics.muni.cz/cloud/knowledgebase.
+    - The webhook uses a secret, the value of which is stored as `ONEDATA_DOCS_WEBHOOK_SECRET` variable in https://gitlab.ics.muni.cz/cloud/knowledgebase/-/settings/ci_cd#js-cicd-variables-settings.
 2. This, in turn, triggers a pull, build and deploy in the production deplyment automation (managed by Lukas Hejtmanek).
     1. If the build is successfull, the new revision is deployed to the production site.
     2. If the build fails, nothing is deployed.
