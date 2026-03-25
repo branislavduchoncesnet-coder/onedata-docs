@@ -3,4 +3,17 @@ title: "Where are my data stored?"
 icon: Single
 ---
 
-*TO DO*
+The Onedata filesystem works through a network of Providers (data centers) that sync data across shared spaces. 
+Here is how it manages your files:
+* __Smart Distribution__: Files are broken into blocks and distributed across different Providers as replicas.
+* __Metadata Syncing__: Information about where these blocks are stored is automatically synchronized between all Providers.
+* __Conflict-Free Editing__: Multiple users can edit a file at once. If changes don't overlap, they are all saved. If there’s a conflict, an automated algorithm ensures every Provider reaches the same final version quickly, without needing to wait for one another. 
+
+You can discover how the file blocks are distributed among providers supporting the space in which it is stored via Web GUI:  
+1. Open the context menu for the file and choose Data distribution.
+![Here is access to data distribution](/img/onedata/where-is-my-data-1.png)
+2. GUI will show the distribution of file blocks.
+![Data distribution](/img/onedata/where-is-my-data-2.png)
+
+
+More info on [file distibution](https://onedata.org/#/home/documentation/25/user-guide/data[file-distribution].html)
