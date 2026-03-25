@@ -1,0 +1,24 @@
+---
+title: "Oneclient - mountpoint is not accessible"
+icon: Single
+---
+
+#### Issue
+Oneclient mountpoint was successfully mounted, but I cannot access it and mountpoint have unknow permissions.
+
+```
+$ ll /mnt
+ls: cannot access '/mnt/onedata': Permission denied
+d?????????  ? ?    ?       ?            ? onedata/
+```
+
+#### Resolution
+1. First __unmount__ the oneclient mountpount with `fusermount -uz <MOUNT_POINT>`.
+2. __Enable__ *user_allow_other* in FUSE Configuration  
+Open /etc/fuse.conf with a text editor (requires sudo) `sudo nano /etc/fuse.conf`.  
+Locate the line *#user_allow_other* and uncomment it by removing the #.  
+Save and exit the file. 
+3. __Mount__ oneclient mounpoint as you did before, but __with added option__ `-o allow_other`
+```
+$ oneclient -H <PROVIDER_HOSTNAME> -t <ACCESS_TOKEN> -o allow_other <MOUNT_POINT>
+```

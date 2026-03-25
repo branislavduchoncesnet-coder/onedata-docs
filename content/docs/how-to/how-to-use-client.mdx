@@ -4,28 +4,42 @@ icon: Single
 ---
 
 For seamles integation with your workstation, Oneclient for Linux can be used to mount your Onedata Spaces as any other folder (mountpoint) in your sytsem.
+The installation nad setup is done by user in terminal.
 
-To install Oneclient using packages, simply use the following command:
+To be able to try and mount Onedata namespace, you'll need hostname of Onedata provider and access token.
+
+Oneprovider __host address__ can be found in Web UI:
+
+    ![Provider hostname](/img/onedata/how-to-use-client-1.png)
+
+__Access token__ can be viewed and created also in Web UI:
+
+    ![Access token creation](/img/onedata/how-to-use-client-2.png)
+
+To __install__ Oneclient using packages, simply use the following command:
 
 ```
 $ curl -sS http://get.onedata.org/oneclient.sh | bash
 ```
+*Oneclient is currently not officaly supported for Ubuntu 24 (Noble Numbat) and installation script Linux version check will not allow you to start with installation. Although, this check can be avoided if you alter the script.*
 
-Basic usage
-The basic command line syntax to mount your spaces with Oneclient is:
+To mount into file system:
 
 ```
 $ oneclient -H <PROVIDER_HOSTNAME> -t <ACCESS_TOKEN> <MOUNT_POINT>
 ```
-
 or
-
 ```
 $ export ONECLIENT_ACCESS_TOKEN=<CLIENT_TOKEN>         # e.g. MDAxNWxvY2F00aW9uIG9uZXp...
 $ export ONECLIENT_PROVIDER_HOST=<PROVIDER_HOSTNAME>   # e.g. cloud2.onedata.e-infra.cz, cloud255-73.cerit-sc.cz
 $ oneclient <MOUNT_POINT>                              # e.g. /home/honza/oneclient
 ```
 
-Provide the hostname of a chosen Oneprovider — one that supports at least one of your spaces
+To terminate the Oneclient application and unmount your spaces, type:
+```
+$ fusermount -uz <MOUNT_POINT>
+```
+These are some know hickups that can occure and stop you from mounting or accessing the mountpoint:
+ - [Mountpoint was successfully mounted, but you do not have permissions to access it](/docs/troubleshooting/oneclient-permissions-denied)
 
 *TO DO*
